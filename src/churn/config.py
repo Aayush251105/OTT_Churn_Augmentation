@@ -14,11 +14,13 @@ RAW_DIR = DATA_DIR / "raw"
 INTERIM_DIR = DATA_DIR / "interim"
 PROCESSED_DIR = DATA_DIR / "processed"
 
-RAW_A = RAW_DIR / "netflix_customer_churn.csv"
-RAW_B = RAW_DIR / "netflix_large_user_data.xlsx"
+RAW_A = RAW_DIR / "netflix_customer_churn.csv"     # comparison + augmentation target (5K)
+RAW_S = RAW_DIR / "train.csv"                      # main modelling dataset (243K, streaming)
+RAW_S_DESCRIPTIONS = RAW_DIR / "data_descriptions.csv"
+RAW_B = RAW_DIR / "netflix_large_user_data.xlsx"   # old dataset B: audit only, never modelled
 
 CLEAN_A = INTERIM_DIR / "a_clean.csv"
-CLEAN_B = INTERIM_DIR / "b_clean.csv"
+CLEAN_S = INTERIM_DIR / "s_clean.csv"
 
 MODELS_DIR = ROOT / "models"
 REPORTS_DIR = ROOT / "reports"
@@ -29,9 +31,12 @@ RESULTS_DIR = REPORTS_DIR / "results"
 RANDOM_STATE = 42
 SEEDS = [0, 1, 2, 3, 4]  # repeated splits for mean +/- std comparison
 
-# ---------------------------------------------------------------- target / ids
+# ---------------------------------------------------------------- target / ids (same names in every dataset)
 TARGET = "churned"
 ID_COL = "customer_id"
+
+# Dataset A's engagement columns, removed to build the harder A_hard setting
+A_ENGAGEMENT = ["watch_hours", "last_login_days", "avg_watch_time_per_day"]
 
 # ---------------------------------------------------------------- matching (report section 3.1.3)
 K = 5
@@ -41,7 +46,7 @@ SIM_THRESHOLD = 0.6
 SPLIT = (0.70, 0.15, 0.15)  # train, validation, test - stratified on TARGET
 
 # ---------------------------------------------------------------- experiments
-EXPERIMENTS = ["A_full", "A_matched", "A_augmented", "A_random"]
+EXPERIMENTS = ["S_full", "A_full", "A_hard", "A_hard_augmented", "A_hard_random"]
 MODELS = ["logistic_regression", "decision_tree", "random_forest", "xgboost"]
 
 # ---------------------------------------------------------------- risk tiers (report section 3.1.8)
@@ -53,14 +58,14 @@ FIG_DPI = 150
 
 
 def experiment_path(name: str) -> Path:
-    """Path of the processed CSV for one experiment, e.g. data/processed/A_augmented.csv."""
+    """Path of the processed CSV for one experiment, e.g. data/processed/A_hard_augmented.csv."""
     if name not in EXPERIMENTS:
         raise ValueError(f"Unknown experiment {name!r}; expected one of {EXPERIMENTS}")
     return PROCESSED_DIR / f"{name}.csv"
 
 
 def model_path(experiment: str, model: str) -> Path:
-    """Path of a saved model, e.g. models/A_full__random_forest.joblib."""
+    """Path of a saved model, e.g. models/S_full__random_forest.joblib."""
     return MODELS_DIR / f"{experiment}__{model}.joblib"
 
 
