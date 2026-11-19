@@ -1,0 +1,102 @@
+[
+  {
+    "dataset": "S",
+    "condition": "account_age < 12",
+    "suggestion": "First-year onboarding: a welcome series and a discounted month at the 6- and 11-month marks.",
+    "rationale": "In dataset S, 32% of these customers churned vs 17% of the rest (22,085 customers, 9% of the dataset). Association only: test the offer before rolling it out.",
+    "segment_churn_rate": 0.315,
+    "rest_churn_rate": 0.1679,
+    "segment_share": 0.0906,
+    "lift": 1.88
+  },
+  {
+    "dataset": "S",
+    "condition": "avg_viewing_duration < 30",
+    "suggestion": "Short sessions: surface personalised picks and shorter formats on the home screen.",
+    "rationale": "In dataset S, 27% of these customers churned vs 17% of the rest (35,049 customers, 14% of the dataset). Association only: test the offer before rolling it out.",
+    "segment_churn_rate": 0.2689,
+    "rest_churn_rate": 0.1665,
+    "segment_share": 0.1438,
+    "lift": 1.61
+  },
+  {
+    "dataset": "S",
+    "condition": "viewing_hours_per_week < 5",
+    "suggestion": "Low viewing: send a re-engagement digest with new releases in the customer's favourite genre.",
+    "rationale": "In dataset S, 27% of these customers churned vs 17% of the rest (24,815 customers, 10% of the dataset). Association only: test the offer before rolling it out.",
+    "segment_churn_rate": 0.2681,
+    "rest_churn_rate": 0.1714,
+    "segment_share": 0.1018,
+    "lift": 1.56
+  },
+  {
+    "dataset": "S",
+    "condition": "content_downloads_per_month < 5",
+    "suggestion": "Few downloads: promote offline viewing (download reminders before commutes and travel).",
+    "rationale": "In dataset S, 27% of these customers churned vs 17% of the rest (24,294 customers, 10% of the dataset). Association only: test the offer before rolling it out.",
+    "segment_churn_rate": 0.2659,
+    "rest_churn_rate": 0.1719,
+    "segment_share": 0.0997,
+    "lift": 1.55
+  },
+  {
+    "dataset": "S",
+    "condition": "support_tickets_per_month >= 7",
+    "suggestion": "Many support tickets: proactive follow-up from the support team and a goodwill credit.",
+    "rationale": "In dataset S, 22% of these customers churned vs 16% of the rest (73,461 customers, 30% of the dataset). Association only: test the offer before rolling it out.",
+    "segment_churn_rate": 0.2221,
+    "rest_churn_rate": 0.1636,
+    "segment_share": 0.3013,
+    "lift": 1.36
+  },
+  {
+    "dataset": "S",
+    "condition": "monthly_charges >= 17",
+    "suggestion": "High bill: offer a loyalty discount or a cheaper plan instead of losing the customer.",
+    "rationale": "In dataset S, 24% of these customers churned vs 17% of the rest (48,490 customers, 20% of the dataset). Association only: test the offer before rolling it out.",
+    "segment_churn_rate": 0.238,
+    "rest_churn_rate": 0.1671,
+    "segment_share": 0.1989,
+    "lift": 1.42
+  },
+  {
+    "dataset": "A",
+    "condition": "last_login_days > 30",
+    "suggestion": "Inactive for over a month: win-back email with a 'continue watching' list and a limited-time offer.",
+    "rationale": "In dataset A, 75% of these customers churned vs 26% of the rest (2,469 customers, 49% of the dataset). Association only: test the offer before rolling it out.",
+    "segment_churn_rate": 0.7509,
+    "rest_churn_rate": 0.2612,
+    "segment_share": 0.4938,
+    "lift": 2.88
+  },
+  {
+    "dataset": "A",
+    "condition": "watch_hours < 5",
+    "suggestion": "Very low watch time: guided content discovery (short quiz, curated starter list).",
+    "rationale": "In dataset A, 84% of these customers churned vs 32% of the rest (1,768 customers, 35% of the dataset). Association only: test the offer before rolling it out.",
+    "segment_churn_rate": 0.8399,
+    "rest_churn_rate": 0.3187,
+    "segment_share": 0.3536,
+    "lift": 2.64
+  },
+  {
+    "dataset": "A",
+    "condition": "subscription_type == 'Basic'",
+    "suggestion": "Basic plan: free trial of Standard features to show the value of a higher plan.",
+    "rationale": "In dataset A, 62% of these customers churned vs 45% of the rest (1,661 customers, 33% of the dataset). Association only: test the offer before rolling it out.",
+    "segment_churn_rate": 0.6183,
+    "rest_churn_rate": 0.4456,
+    "segment_share": 0.3322,
+    "lift": 1.39
+  },
+  {
+    "dataset": "A",
+    "condition": "payment_method in ['Crypto', 'Gift Card']",
+    "suggestion": "Prepaid / non-recurring payment: nudge to switch to an auto-renewing card before the balance runs out.",
+    "rationale": "In dataset A, 59% of these customers churned vs 45% of the rest (1,971 customers, 39% of the dataset). Association only: test the offer before rolling it out.",
+    "segment_churn_rate": 0.5875,
+    "rest_churn_rate": 0.448,
+    "segment_share": 0.3942,
+    "lift": 1.31
+  }
+]
