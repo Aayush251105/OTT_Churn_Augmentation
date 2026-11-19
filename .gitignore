@@ -27,3 +27,9 @@ venv/
 Thumbs.db
 .vscode/
 ~$*
+
+# Design references (shared privately, not committed)
+designs/
+
+# Trained models (regenerate with `python -m churn.models`)
+models/*.joblib
