@@ -38,7 +38,7 @@ def set_style() -> None:
         "savefig.dpi": config.FIG_DPI,
         "axes.spines.top": False,
         "axes.spines.right": False,
-        "axes.titleweight": "semibold",
+        "axes.titleweight": "bold",  # Arial has no semibold face
         "axes.titlesize": 12,
         "axes.titlelocation": "left",
         "grid.alpha": 0.4,
