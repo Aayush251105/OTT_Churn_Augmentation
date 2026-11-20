@@ -1,0 +1,110 @@
+/* StayScope: small layer on top of the Streamlit theme (.streamlit/config.toml).
+   Only what the theme cannot express. Selectors using Streamlit's data-testid attributes are marked (st). */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --bg: #0F0F12; --card: #17171C; --raised: #1E1E25; --border: #2A2A33; --border-hover: #3A3A45;
+  --text: #F2F2F5; --text-2: #A1A1AA; --muted: #71717A;
+  --red: #E5484D; --amber: #F5A524; --teal: #2BB3A3;
+}
+
+html, body, [class*="st-"] { font-variant-numeric: tabular-nums; }
+
+/* (st) main column: max width and calmer top padding */
+[data-testid="stMainBlockContainer"] { max-width: 1280px; padding-top: 2.5rem; padding-bottom: 4rem; }
+
+/* (st) bordered containers = cards */
+[data-testid="stVerticalBlock"][data-st-border="true"],
+div[data-testid="stVerticalBlockBorderWrapper"] { background: var(--card); }
+
+/* Page header */
+.ss-header h1 { font-size: 28px; line-height: 36px; font-weight: 600; letter-spacing: -0.01em; margin: 0; padding: 0; }
+.ss-header p { color: var(--text-2); font-size: 14px; margin: 4px 0 0; }
+
+/* Section heading */
+.ss-section { margin: 24px 0 4px; }
+.ss-section h2 { font-size: 18px; line-height: 24px; font-weight: 600; margin: 0; padding: 0; }
+.ss-section p { color: var(--text-2); font-size: 13px; margin: 2px 0 0; }
+.ss-step { display: inline-flex; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border);
+  align-items: center; justify-content: center; font-size: 12px; color: var(--text-2); margin-right: 8px; }
+
+/* Chart-card title */
+.ss-chart-title { font-size: 14px; font-weight: 600; color: var(--text); margin: 0; }
+.ss-chart-caption { font-size: 12px; color: var(--muted); margin: 2px 0 4px; }
+
+/* KPI card */
+.ss-kpi { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;
+  height: 100%; box-sizing: border-box; transition: border-color 120ms; }
+.ss-kpi:hover { border-color: var(--border-hover); }
+.ss-kpi .lbl { font-size: 12px; color: var(--text-2); font-weight: 500; }
+.ss-kpi .val { font-size: 28px; line-height: 36px; font-weight: 600; color: var(--text); margin-top: 4px; }
+.ss-kpi .val.sm { font-size: 20px; line-height: 28px; }
+.ss-kpi .sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.ss-kpi .up { color: var(--red); } .ss-kpi .down { color: var(--teal); } .ss-kpi .flat { color: var(--text-2); }
+
+/* Callout */
+/* Tone = a small dot beside the label, not a coloured edge; the card keeps the same 1px border as every card */
+.ss-callout { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; }
+.ss-callout .t { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600;
+  color: var(--text-2); margin-bottom: 4px; }
+.ss-callout .t::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex: none; }
+.ss-callout.teal .t::before { background: var(--teal); } .ss-callout.red .t::before { background: var(--red); }
+.ss-callout.amber .t::before { background: var(--amber); }
+.ss-callout .b { font-size: 14px; color: var(--text); }
+
+/* Tags and badges */
+.ss-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.ss-tag { border: 1px solid var(--border); background: var(--raised); color: var(--text); border-radius: 999px;
+  padding: 3px 10px; font-size: 12px; }
+.ss-badge { display: inline-block; border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 600;
+  letter-spacing: 0.04em; }
+.ss-badge.low { color: var(--teal); background: rgba(43,179,163,.12); }
+.ss-badge.medium { color: var(--amber); background: rgba(245,165,36,.12); }
+.ss-badge.high { color: var(--red); background: rgba(229,72,77,.14); }
+
+/* Numbered list (cleaning steps, actions) */
+.ss-list { border: 1px solid var(--border); border-radius: 10px; background: var(--card); }
+.ss-list .row { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; padding: 14px 18px;
+  border-top: 1px solid var(--border); align-items: baseline; }
+.ss-list .row:first-child { border-top: 0; }
+.ss-list .n { color: var(--muted); font-size: 12px; }
+.ss-list .h { font-weight: 600; font-size: 14px; }
+.ss-list .d { color: var(--text-2); font-size: 13px; }
+.ss-list .r { color: var(--text-2); font-size: 12px; white-space: nowrap; }
+
+/* Empty state and sample-data banner */
+.ss-empty { border: 1px dashed var(--border); border-radius: 10px; padding: 40px 24px; text-align: center; color: var(--text-2); }
+.ss-empty .t { color: var(--text); font-weight: 600; margin-bottom: 4px; }
+.ss-banner { border: 1px solid rgba(245,165,36,.35); background: rgba(245,165,36,.08); color: var(--amber);
+  border-radius: 8px; padding: 6px 12px; font-size: 12px; margin-bottom: 12px; }
+
+/* Big probability readout */
+.ss-big { font-size: 44px; line-height: 48px; font-weight: 600; color: var(--text); }
+.ss-riskbar { position: relative; height: 8px; border-radius: 4px; margin: 14px 0 6px;
+  background: linear-gradient(to right, var(--teal) 0 30%, var(--amber) 30% 60%, var(--red) 60% 100%); opacity: .85; }
+.ss-riskbar .m { position: absolute; top: -5px; width: 3px; height: 18px; background: var(--text); border-radius: 2px; }
+.ss-riskscale { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+
+/* (st) Expand button: right-hand column of the chart-title row (ui.chart_title), quiet until hovered */
+[class*="st-key-ss-expand-"] { align-items: flex-end !important; }
+[class*="st-key-ss-expand-"] button { white-space: nowrap; }
+[class*="st-key-ss-expand-"] button { color: var(--text-2); font-size: 12px; min-height: 28px; padding: 2px 8px; }
+[class*="st-key-ss-expand-"] button:hover { color: var(--text); }
+
+/* (st) Expanded chart dialog: fills the screen, chart fits in 100vh without scrolling.
+   The chart container = viewport minus dialog margins (2 x 2vh), its header (~64px), caption (~28px), padding (~72px). */
+[data-testid="stDialog"]:has(.ss-full), [data-testid="stDialog"]:has(.ss-full) > div {
+  padding: 0 !important; margin: 0 !important; top: 0 !important; left: 0 !important; height: 100vh !important;
+  width: 100vw !important; max-width: 100vw !important; align-items: center; justify-content: center; }
+section[role="dialog"]:has(.ss-full) { width: 96vw !important; max-width: 96vw !important;
+  height: 96vh !important; max-height: 96vh !important; margin: 2vh auto !important; overflow: hidden; }
+/* The keyed container has flex-basis 0 (which beats height), so its wrapper carries the height */
+[data-testid="stLayoutWrapper"]:has(> [class*="st-key-ssfull-"]) { height: calc(96vh - 176px) !important;
+  min-height: 280px; flex: 0 0 auto !important; }
+[class*="st-key-ssfull-"] { height: 100% !important; }
+[class*="st-key-ssfull-"] > div, [class*="st-key-ssfull-"] [data-testid="stFullScreenFrame"],
+[class*="st-key-ssfull-"] [data-testid="stPlotlyChart"], [class*="st-key-ssfull-"] .js-plotly-plot,
+[class*="st-key-ssfull-"] .plot-container, [class*="st-key-ssfull-"] .svg-container { height: 100% !important; flex: 1 1 auto; }
+
+/* Sidebar footer */
+.ss-foot { color: var(--muted); font-size: 12px; padding: 0 8px; }

@@ -127,5 +127,186 @@
         }
       }
     }
+  },
+  "A_hard": {
+    "features": {
+      "numeric": [
+        "age",
+        "number_of_profiles"
+      ],
+      "categorical": [
+        "gender",
+        "subscription_type",
+        "region",
+        "device",
+        "payment_method",
+        "favorite_genre"
+      ],
+      "binary": [],
+      "log_cols": []
+    },
+    "models": {
+      "decision_tree": {
+        "class_weight": "balanced",
+        "threshold": 0.2,
+        "val_f1": 0.7119,
+        "params": {
+          "max_depth": 6,
+          "min_samples_leaf": 100
+        }
+      },
+      "logistic_regression": {
+        "class_weight": "balanced",
+        "threshold": 0.39,
+        "val_f1": 0.7031,
+        "params": {
+          "C": 0.01
+        }
+      },
+      "random_forest": {
+        "class_weight": "balanced",
+        "threshold": 0.34,
+        "val_f1": 0.7121,
+        "params": {
+          "n_estimators": 300,
+          "max_depth": 12,
+          "min_samples_leaf": 5
+        }
+      },
+      "xgboost": {
+        "class_weight": "none",
+        "threshold": 0.31,
+        "val_f1": 0.7109,
+        "params": {
+          "n_estimators": 400,
+          "learning_rate": 0.03,
+          "max_depth": 4
+        }
+      }
+    }
+  },
+  "A_hard_augmented": {
+    "features": {
+      "numeric": [
+        "age",
+        "number_of_profiles",
+        "account_age",
+        "avg_viewing_duration",
+        "content_downloads_per_month",
+        "viewing_hours_per_week",
+        "support_tickets_per_month"
+      ],
+      "categorical": [
+        "gender",
+        "subscription_type",
+        "region",
+        "device",
+        "payment_method",
+        "favorite_genre"
+      ],
+      "binary": [],
+      "log_cols": []
+    },
+    "models": {
+      "decision_tree": {
+        "class_weight": "balanced",
+        "threshold": 0.14,
+        "val_f1": 0.7119,
+        "params": {
+          "max_depth": 4,
+          "min_samples_leaf": 100
+        }
+      },
+      "logistic_regression": {
+        "class_weight": "none",
+        "threshold": 0.38,
+        "val_f1": 0.7036,
+        "params": {
+          "C": 0.01
+        }
+      },
+      "random_forest": {
+        "class_weight": "none",
+        "threshold": 0.35,
+        "val_f1": 0.7127,
+        "params": {
+          "n_estimators": 300,
+          "max_depth": 12,
+          "min_samples_leaf": 20
+        }
+      },
+      "xgboost": {
+        "class_weight": "none",
+        "threshold": 0.29,
+        "val_f1": 0.7107,
+        "params": {
+          "n_estimators": 400,
+          "learning_rate": 0.03,
+          "max_depth": 3
+        }
+      }
+    }
+  },
+  "A_hard_random": {
+    "features": {
+      "numeric": [
+        "age",
+        "number_of_profiles",
+        "account_age",
+        "avg_viewing_duration",
+        "content_downloads_per_month",
+        "viewing_hours_per_week",
+        "support_tickets_per_month"
+      ],
+      "categorical": [
+        "gender",
+        "subscription_type",
+        "region",
+        "device",
+        "payment_method",
+        "favorite_genre"
+      ],
+      "binary": [],
+      "log_cols": []
+    },
+    "models": {
+      "decision_tree": {
+        "class_weight": "balanced",
+        "threshold": 0.22,
+        "val_f1": 0.7119,
+        "params": {
+          "max_depth": 6,
+          "min_samples_leaf": 100
+        }
+      },
+      "logistic_regression": {
+        "class_weight": "none",
+        "threshold": 0.38,
+        "val_f1": 0.6997,
+        "params": {
+          "C": 0.01
+        }
+      },
+      "random_forest": {
+        "class_weight": "none",
+        "threshold": 0.36,
+        "val_f1": 0.7125,
+        "params": {
+          "n_estimators": 300,
+          "max_depth": 16,
+          "min_samples_leaf": 5
+        }
+      },
+      "xgboost": {
+        "class_weight": "balanced",
+        "threshold": 0.32,
+        "val_f1": 0.7123,
+        "params": {
+          "n_estimators": 400,
+          "learning_rate": 0.03,
+          "max_depth": 3
+        }
+      }
+    }
   }
 }
