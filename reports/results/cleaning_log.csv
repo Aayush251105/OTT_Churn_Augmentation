@@ -1,0 +1,16 @@
+dataset,step,rows_before,rows_after,cols_before,cols_after,n_affected,note
+A,Trim whitespace in text columns,5000,5000,14,14,0,Normalise category labels
+A,Remove duplicate customer IDs,5000,5000,14,14,0,Keep the first record per ID
+A,Remove duplicate rows (ignoring ID),5000,5000,14,14,0,Identical records
+A,Drop rows with missing values,5000,5000,14,14,0,No imputation needed: both datasets are complete
+A,Drop rows with out-of-range values,5000,5000,14,14,0,"Checked: age, watch_hours, last_login_days, number_of_profiles"
+A,Drop avg_watch_time_per_day,5000,5000,14,13,10,Derived: watch_hours / (last_login_days + 1); 10 rows were > 24 h/day
+A,Drop monthly_fee,5000,5000,13,12,0,Redundant: one fixed fee per subscription_type
+A,Keep watch_hours outliers,5000,5000,12,12,238,Plausible heavy viewers; log1p-transformed for Logistic Regression
+S,Trim whitespace in text columns,243787,243787,21,21,0,Normalise category labels
+S,Remove duplicate customer IDs,243787,243787,21,21,0,Keep the first record per ID
+S,Remove duplicate rows (ignoring ID),243787,243787,21,21,0,Identical records
+S,Drop rows with missing values,243787,243787,21,21,0,No imputation needed: both datasets are complete
+S,Drop rows with out-of-range values,243787,243787,21,21,0,"Checked: account_age, monthly_charges, viewing_hours_per_week, avg_viewing_duration, content_downloads_per_month, user_rating, support_tickets_per_month, watchlist_size"
+S,Drop total_charges,243787,243787,21,20,0,Derived: exactly account_age x monthly_charges
+S,Convert Yes/No columns to 1/0,243787,243787,20,20,487824,"paperless_billing, multi_device_access, parental_control, subtitles_enabled"

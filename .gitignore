@@ -3,6 +3,12 @@ CLAUDE.md
 CLAUDE.local.md
 .claude/
 
+# Data: unlabelled competition test set (never used) and generated files (regenerate with
+# `python -m churn.preprocessing` and the notebooks)
+data/raw/test.csv
+data/interim/*.csv
+data/processed/*.csv
+
 # Python
 __pycache__/
 *.py[cod]
@@ -21,3 +27,9 @@ venv/
 Thumbs.db
 .vscode/
 ~$*
+
+# Design references (shared privately, not committed)
+designs/
+
+# Trained models (regenerate with `python -m churn.models`)
+models/*.joblib

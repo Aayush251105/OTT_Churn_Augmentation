@@ -1,0 +1,26 @@
+# Core
+numpy>=1.26
+pandas>=2.2
+scipy>=1.12
+openpyxl>=3.1          # Dataset B is .xlsx
+
+# Modelling
+scikit-learn>=1.4
+xgboost>=2.0
+shap>=0.45
+joblib>=1.3
+
+# Visualisation
+matplotlib>=3.8
+seaborn>=0.13
+plotly>=5.20
+
+# Notebooks
+jupyter>=1.0
+ipykernel>=6.29
+
+# Dashboard
+streamlit>=1.35
+
+# Makes `import churn` work everywhere (notebooks, app) by installing src/ in editable mode
+-e .
