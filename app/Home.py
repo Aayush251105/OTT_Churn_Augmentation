@@ -15,6 +15,8 @@ PAGES = APP / "views"  # not "pages/": that folder name triggers Streamlit's leg
 st.set_page_config(page_title="StayScope", page_icon=str(APP / "assets" / "icon.svg"), layout="wide",
                    initial_sidebar_state="expanded")
 ui.inject_css()
+st.session_state["_ss_chart_n"] = 0          # chart counter for stable Expand-button keys (components/charts.py)
+st.session_state.pop("_ss_chart_title", None)
 st.logo(str(APP / "assets" / "logo.svg"), icon_image=str(APP / "assets" / "icon.svg"), size="large")
 
 nav = st.navigation({
