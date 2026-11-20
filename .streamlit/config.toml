@@ -1,0 +1,41 @@
+# StayScope theme: tokens from the design references (designs/StayScope-designs)
+[server]
+headless = true
+runOnSave = false
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+base = "dark"
+primaryColor = "#E5484D"
+backgroundColor = "#0F0F12"
+secondaryBackgroundColor = "#17171C"
+textColor = "#F2F2F5"
+linkColor = "#E5484D"
+linkUnderline = false
+borderColor = "#2A2A33"
+dataframeBorderColor = "#2A2A33"
+dataframeHeaderBackgroundColor = "#17171C"
+showWidgetBorder = true
+font = "Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif"
+headingFont = "Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif"
+baseFontSize = 14
+headingFontWeights = [600, 600, 600, 600, 600, 600]
+baseRadius = "10px"
+buttonRadius = "8px"
+redColor = "#E5484D"
+orangeColor = "#F5A524"
+greenColor = "#2BB3A3"
+blueColor = "#7C9CF5"
+violetColor = "#A78BFA"
+grayColor = "#71717A"
+chartCategoricalColors = ["#7C9CF5", "#A78BFA", "#2BB3A3", "#F5A524", "#E5484D", "#71717A", "#A1A1AA"]
+
+[theme.sidebar]
+backgroundColor = "#0F0F12"
+secondaryBackgroundColor = "#17171C"
+borderColor = "#2A2A33"
