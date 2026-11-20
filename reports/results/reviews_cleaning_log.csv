@@ -1,0 +1,6 @@
+dataset,step,rows_before,rows_after,n_affected,note
+reviews,drop_empty,165694,165686,8,review has no text
+reviews,drop_duplicate_ids,165686,163879,1807,same review scraped twice
+reviews,drop_duplicate_text,163879,151797,12082,"identical text, first kept (spam, 'good app' repeats)"
+reviews,drop_short,151797,146080,5717,"fewer than 3 words, too short for a topic"
+reviews,drop_non_english,146080,145174,906,5+ words but no English stop word (other languages in Latin script)

@@ -1,0 +1,10 @@
+theme,topic,description,share,cancel_share,keyword_share,n_reviews,nmf_topics,s_driver
+app_broken,App crashes or won't open,"The app crashes, freezes, will not open or stopped working on a device.",0.25927792476866435,0.11913203800879307,0.4205199277644786,18521,7 3 4 11,support_tickets_per_month
+price_billing,Price & billing,"Price rises, being charged, payment failures, not worth the money.",0.22215222656195316,0.4580910509147639,0.3233239539148573,15869,2,monthly_charges
+content,Content library,"Not enough new or local-language titles, shows removed, old catalogue.",0.17144737026304369,0.2506027513827826,0.3416768160374057,12247,8 1,viewing_hours_per_week
+playback,Playback & streaming quality,"Black screen, no sound, buffering, low resolution, videos that will not play.",0.13618355661948958,0.0717628705148206,0.40335699186650426,9728,9 0,support_tickets_per_month
+bad_update,A bad update,Something broke after a new app version.,0.07264149622723391,0.0421216848673947,0.14357509834390267,5189,5,support_tickets_per_month
+server_error,Connection & server errors,"""Sorry, we couldn't reach the Netflix service"" and other connection errors.",0.06712583819803172,0.034888668274003685,0.13560959220528326,4795,6,support_tickets_per_month
+account_sharing,"Account, login & password sharing","Login loops, locked accounts, the household / paid-sharing rules.",0.05619251606400403,0.02240816905403489,0.18701440510688339,4014,10,multi_device_access
+downloads,Downloads,"Downloads fail, expire or are limited.",0.0,0.0,0.09249226547954027,0,,content_downloads_per_month
+ads,Ads,"Adverts in the cheaper plan, ads for Netflix's own titles.",0.0,0.0,0.029286184256576094,0,,

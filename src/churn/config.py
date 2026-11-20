@@ -18,9 +18,11 @@ RAW_A = RAW_DIR / "netflix_customer_churn.csv"     # comparison + augmentation t
 RAW_S = RAW_DIR / "train.csv"                      # main modelling dataset (243K, streaming)
 RAW_S_DESCRIPTIONS = RAW_DIR / "data_descriptions.csv"
 RAW_B = RAW_DIR / "netflix_large_user_data.xlsx"   # old dataset B: audit only, never modelled
+RAW_REVIEWS = RAW_DIR / "netflix_reviews.csv"      # Netflix Google Play reviews (Kaggle, Phase 8 NLP)
 
 CLEAN_A = INTERIM_DIR / "a_clean.csv"
 CLEAN_S = INTERIM_DIR / "s_clean.csv"
+CLEAN_REVIEWS = INTERIM_DIR / "reviews_clean.csv"
 
 MODELS_DIR = ROOT / "models"
 REPORTS_DIR = ROOT / "reports"
@@ -52,6 +54,11 @@ MODELS = ["logistic_regression", "decision_tree", "random_forest", "xgboost"]
 # ---------------------------------------------------------------- risk tiers (report section 3.1.8)
 RISK_BINS = (0.3, 0.6)  # low < 0.3 <= medium < 0.6 <= high
 RISK_LABELS = ("low", "medium", "high")
+
+# ---------------------------------------------------------------- reviews NLP (Phase 8)
+REVIEW_MIN_WORDS = 3         # shorter reviews ("good app") carry no topic
+REVIEW_N_TOPICS = 12         # NMF topics on negative reviews (notebook 07: finest k whose theme shares are seed-stable)
+REVIEW_MIN_MONTH_N = 100     # months with fewer reviews are left out of the monthly sentiment series
 
 # ---------------------------------------------------------------- figures
 FIG_DPI = 150
