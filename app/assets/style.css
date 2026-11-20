@@ -43,11 +43,13 @@ div[data-testid="stVerticalBlockBorderWrapper"] { background: var(--card); }
 .ss-kpi .up { color: var(--red); } .ss-kpi .down { color: var(--teal); } .ss-kpi .flat { color: var(--text-2); }
 
 /* Callout */
-.ss-callout { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--muted);
-  border-radius: 10px; padding: 14px 18px; }
-.ss-callout.teal { border-left-color: var(--teal); } .ss-callout.red { border-left-color: var(--red); }
-.ss-callout.amber { border-left-color: var(--amber); }
-.ss-callout .t { font-size: 12px; font-weight: 600; color: var(--text-2); text-transform: none; margin-bottom: 2px; }
+/* Tone = a small dot beside the label, not a coloured edge; the card keeps the same 1px border as every card */
+.ss-callout { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; }
+.ss-callout .t { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600;
+  color: var(--text-2); margin-bottom: 4px; }
+.ss-callout .t::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex: none; }
+.ss-callout.teal .t::before { background: var(--teal); } .ss-callout.red .t::before { background: var(--red); }
+.ss-callout.amber .t::before { background: var(--amber); }
 .ss-callout .b { font-size: 14px; color: var(--text); }
 
 /* Tags and badges */
