@@ -63,7 +63,14 @@ app/               StayScope Streamlit dashboard
 | 06 | Interpretation, risk tiers & retention | Sukhraj |
 | 07 | Why customers leave (app-review NLP) | Sukhraj |
 
-## Dashboard
+## Dashboard: StayScope
+The app reads saved results only (it never retrains). On a fresh clone, generate the ignored files first:
 ```bash
+python -m churn.preprocessing   # cleaned datasets      -> data/interim/
+python -m churn.matching        # A_hard experiments    -> data/processed/
+python -m churn.models          # trained final models  -> models/
 streamlit run app/Home.py
 ```
+Nine pages in three groups: **Overview** (Home, Data explorer, Preprocessing), **Modelling** (Model comparison,
+Churn predictor, Augmentation study) and **Insights** (Risk & retention, Budget simulator, Why customers leave).
+Page scripts live in `app/views/`; shared layout, chart and data helpers live in `app/components/`.
