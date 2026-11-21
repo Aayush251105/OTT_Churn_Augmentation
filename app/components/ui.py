@@ -30,7 +30,10 @@ def section(title: str, helper: str | None = None, step: int | None = None) -> N
 def chart_title(title: str, caption: str | None = None) -> None:
     """Takeaway title (and caption) above a chart inside a card."""
     cap = f'<p class="ss-chart-caption">{escape(caption)}</p>' if caption else ""
-    st.html(f'<p class="ss-chart-title">{escape(title)}</p>{cap}')
+    text, slot = st.columns([7, 1], gap="small")
+    text.html(f'<p class="ss-chart-title">{escape(title)}</p>{cap}')
+    # The next charts.show() puts its Expand button in `slot` (top right) and reuses title + caption in the dialog
+    st.session_state["_ss_chart_title"] = (title, caption, slot)
 
 
 def kpi(label: str, value: str, sub: str | None = None, delta: str | None = None, tone: str = "flat",

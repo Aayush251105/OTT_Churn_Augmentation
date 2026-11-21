@@ -40,12 +40,61 @@ DIVERGING = [[0, RED], [0.5, "#26262E"], [1, TEAL]]
 SEQUENTIAL = [[0, "#1E1E25"], [1, "#9C9CA8"]]
 
 
-def show(fig: go.Figure, height: int = 320, key: str | None = None) -> None:
-    """Apply the template and render. The Streamlit theme is switched off so the template wins."""
+MAX_INLINE_HEIGHT = 520         # px: fits a ~768px-tall laptop viewport with the page header above it
+TITLE_KEY = "_ss_chart_title"   # set by ui.chart_title, read by the next show()
+COUNTER_KEY = "_ss_chart_n"     # reset by the router on every run, gives each chart a stable widget key
+EXPANDED_CONFIG = {"displayModeBar": True, "displaylogo": False, "responsive": True,
+                   "modeBarButtonsToRemove": ["select2d", "lasso2d", "autoScale2d"],
+                   "toImageButtonOptions": {"format": "png", "scale": 2, "filename": "stayscope_chart"}}
+
+
+def _expanded(fig: go.Figure, title: str | None, caption: str | None, height: int, key: str) -> None:
+    """Open the chart in a near full-screen dialog: same title and caption, taller, with zoom/pan/download."""
+    @st.dialog(title or "Chart", width="large")
+    def _dialog():
+        st.html('<div class="ss-full"></div>')  # marker the CSS uses to size this dialog to the viewport
+        hint = "Drag to zoom · double-click to reset · camera icon saves a PNG"
+        st.caption(f"{caption} · {hint}" if caption else hint)
+        big = go.Figure(fig)
+        big.update_layout(height=None, autosize=True, font=dict(size=14))
+        big.update_traces(textfont=dict(size=13), selector=dict(type="heatmap"))  # cell numbers readable full size
+        big.update_xaxes(tickfont=dict(size=13))
+        big.update_yaxes(tickfont=dict(size=13))
+        # The chart stretches to fill a container that style.css sizes from the viewport (100vh minus the dialog's
+        # header and caption), so the expanded chart always fits on one screen without scrolling.
+        with st.container(key=f"ssfull-{key}"):
+            st.plotly_chart(big, theme=None, height="stretch", key=f"{key}_full", config=EXPANDED_CONFIG)
+        # Plotly measures its box only when it first draws; once the dialog has its full size, ask it to re-measure
+        # (Streamlit's charts listen for window resize). Only this one event is dispatched; nothing else runs.
+        st.html("<script>[150, 600].forEach(t => setTimeout(() => window.dispatchEvent(new Event('resize')), t));</script>",
+                unsafe_allow_javascript=True)
+
+    _dialog()
+
+
+def show(fig: go.Figure, height: int = 320, key: str | None = None, expandable: bool = True) -> None:
+    """Apply the template and render. The Streamlit theme is switched off so the template wins.
+
+    Every chart gets an Expand button (top right of its card) that opens it near full screen, with the title and
+    caption set by the `ui.chart_title` call just before it.
+    """
+    height = min(height, MAX_INLINE_HEIGHT)  # every inline chart fits one laptop screen; Expand gives full size
     fig.update_layout(template="stayscope", height=height, margin=dict(l=4, r=12, t=8, b=8, autoexpand=True))
     # automargin must be set on the figure itself: from the template it is not applied, which clips tick labels
     fig.update_xaxes(automargin=True)
     fig.update_yaxes(automargin=True)
+
+    title, caption, slot = st.session_state.pop(TITLE_KEY, (None, None, None))
+    n = st.session_state.get(COUNTER_KEY, 0) + 1
+    st.session_state[COUNTER_KEY] = n
+    key = key or f"chart_{n}"
+    if expandable:
+        # In the right-hand slot of the chart title's row (ui.chart_title); a chart without a title gets its own row
+        with (slot or st.container()):
+            with st.container(key=f"ss-expand-{key}"):
+                if st.button("Expand", icon=":material/open_in_full:", type="tertiary", key=f"{key}_expand",
+                             help="Open this chart full screen"):
+                    _expanded(fig, title, caption, height, key)
     st.plotly_chart(fig, theme=None, key=key, config={"displayModeBar": False, "responsive": True})
 
 
