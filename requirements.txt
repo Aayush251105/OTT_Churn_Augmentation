@@ -20,7 +20,7 @@ jupyter>=1.0
 ipykernel>=6.29
 
 # Dashboard
-streamlit>=1.35
+streamlit>=1.67        # the dashboard uses st.navigation, st.dialog and height="stretch" charts
 
 # Makes `import churn` work everywhere (notebooks, app) by installing src/ in editable mode
 -e .

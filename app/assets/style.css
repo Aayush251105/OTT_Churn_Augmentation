@@ -106,5 +106,12 @@ section[role="dialog"]:has(.ss-full) { width: 96vw !important; max-width: 96vw !
 [class*="st-key-ssfull-"] [data-testid="stPlotlyChart"], [class*="st-key-ssfull-"] .js-plotly-plot,
 [class*="st-key-ssfull-"] .plot-container, [class*="st-key-ssfull-"] .svg-container { height: 100% !important; flex: 1 1 auto; }
 
+/* Review quote cards (Why customers leave) */
+.ss-quote { border: 1px solid var(--border); border-radius: 10px; background: var(--card); padding: 14px 18px; height: 100%;
+  box-sizing: border-box; }
+.ss-quote .q { color: var(--text); font-size: 13px; line-height: 20px; }
+.ss-quote .m { color: var(--muted); font-size: 12px; margin-top: 8px; }
+.ss-quote .stars { color: var(--amber); letter-spacing: 1px; }
+
 /* Sidebar footer */
 .ss-foot { color: var(--muted); font-size: 12px; padding: 0 8px; }
