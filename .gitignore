@@ -1,7 +1,3 @@
-# Claude instructions are local-only, never pushed
-CLAUDE.md
-CLAUDE.local.md
-.claude/
 
 # Data: unlabelled competition test set (never used) and generated files (regenerate with
 # `python -m churn.preprocessing` and the notebooks)
