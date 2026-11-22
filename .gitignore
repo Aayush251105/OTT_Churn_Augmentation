@@ -33,3 +33,6 @@ designs/
 
 # Trained models (regenerate with `python -m churn.models`)
 models/*.joblib
+
+# Local design-tool cache
+.impeccable/
